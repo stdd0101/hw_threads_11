@@ -5,9 +5,11 @@ public class Main {
 
         Runnable runnable = () -> {
             try {
-                String name = Thread.currentThread().getName();
-                System.out.println("Всем привет!, я " + Thread.currentThread().getName());
-                Thread.currentThread().sleep(2500);
+                while(true) {
+                    String name = Thread.currentThread().getName();
+                    System.out.println("Всем привет!, я " + Thread.currentThread().getName());
+                    Thread.currentThread().sleep(2000);
+                }
             }
             catch (InterruptedException e) {
                 return;
@@ -28,10 +30,7 @@ public class Main {
         thread3.start();
         thread4.start();
 
-        thread1.join();
-        thread2.join();
-        thread3.join();
-        thread4.join();
+        Thread.sleep(10000);
 
         mainGroup.interrupt();
     }
